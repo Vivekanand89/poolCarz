@@ -1,0 +1,60 @@
+<div class="col-md-5 col-md-offset-3">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>Car Ride Registration Form</h4>
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="offerRideForm">
+        <div class="form-group" [ngClass]="{'has-error': offerRideForm.controls.name.invalid, 'has-success': offerRideForm.controls.name.valid }">
+          <label>
+            Name
+          </label>
+          <input type="text" class="form-control" formControlName="name" placeholder="Name"/>
+          <div *ngIf="offerRideForm.controls.name.errors && (offerRideForm.controls.name.touched && offerRideForm.controls.name.dirty)">
+            <p *ngIf="offerRideForm.controls.name.errors.required">Destination is a required field!</p>
+            <p *ngIf="offerRideForm.controls.name.errors.minlength">Name is too short!</p>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': offerRideForm.controls.startlocation.invalid, 'has-success': offerRideForm.controls.startlocation.valid }">
+          <label>
+            Start Location
+          </label>
+          <input type="text" class="form-control" formControlName="startlocation" placeholder="Start Location"/>
+          <div *ngIf="offerRideForm.controls.destination.errors && (offerRideForm.controls.destination.touched && offerRideForm.controls.destination.dirty)">
+            <p *ngIf="offerRideForm.controls.destination.errors.required">Destination is a required field!</p>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': offerRideForm.controls.destination.invalid, 'has-success': offerRideForm.controls.destination.valid }">
+          <label>
+            Destination
+          </label>
+          <input type="text" class="form-control" formControlName="destination" placeholder="Destination"/>
+          <div *ngIf="offerRideForm.controls.car.errors && (offerRideForm.controls.destination.touched && offerRideForm.controls.destination.dirty)">
+            <p *ngIf="offerRideForm.controls.destination.errors.required">Destination is a required field!</p>
+          </div>
+        </div>
+        <div class="form-group has-success">
+          <label>
+            Car
+          </label>
+          <input type="text" class="form-control" formControlName="car" placeholder="Enter Car Name"/>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': offerRideForm.controls.seatsavailable.errors, 'has-success': offerRideForm.controls.seatsavailable.valid }">
+          <label>
+            Seats Available
+          </label>
+          <input type="number" class="form-control" formControlName="seatsavailable" placeholder="Seats Available"/>
+          <div *ngIf="offerRideForm.controls.seatsavailable.errors && (offerRideForm.controls.seatsavailable.touched && offerRideForm.controls.seatsavailable.dirty)">
+            <p *ngIf="offerRideForm.controls.seatsavailable.errors.required">Seats Available is a required field.</p>
+            <p *ngIf="offerRideForm.controls.seatsavailable.errors.numberInvalid">Number must be less or equal to 50</p>
+            <p *ngIf="offerRideForm.controls.seatsavailable.errors.minlength">Minimum number of digit is 1</p>
+            <p *ngIf="offerRideForm.controls.seatsavailable.errors.maxlength">Maximum number of digit is 2</p>
+          </div>
+        </div>
+        <div align="center">
+          <button type="button" class="btn btn-primary">Offer a Ride</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+<div class="col-sm-5 col-sm-offset-4">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>Sign In</h4>
+    </div>
+    <div class="panel-body">
+      <form [formGroup]="loginForm">
+        <div class="form-group" [ngClass]="{'has-error': loginForm.controls.username.invalid, 'has-success': loginForm.controls.username.valid }">
+          <label>
+            Username
+          </label>
+          <input placeholder="Enter username" type="text" class="form-control" formControlName="username">
+          <div *ngIf="loginForm.controls.username.errors && (loginForm.controls.username.touched || loginForm.controls.username.dirty)">
+            <p *ngIf="loginForm.controls.username.errors.required">Username is required!</p>
+            <p *ngIf="loginForm.controls.username.errors.minlength">Username is too short!</p>
+            <p *ngIf="loginForm.controls.username.errors.maxlength">Username is too long!</p>
+          </div>
+        </div>
+        <div class="form-group" [ngClass]="{'has-error': loginForm.controls.password.invalid, 'has-success': loginForm.controls.password.valid }">
+          <label>
+            Password
+          </label>
+          <input placeholder="Enter password" type="password" class="form-control" formControlName="password">
+          <div *ngIf="loginForm.controls.password.errors && (loginForm.controls.password.touched || loginForm.controls.password.dirty)">
+            <p *ngIf="loginForm.controls.password.errors.required">Password is required!</p>
+            <p *ngIf="loginForm.controls.password.errors.minlength">Minimum length required is 8!</p>
+          </div>
+        </div>
+        <div align="center">
+          <button type="button" class="btn btn-primary" (click)="doLogin()" [disabled]="!loginForm.valid">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>

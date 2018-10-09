@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h4>Book a Ride</h4>
+    </div>
+    <div class="panel-body">
+      <p class="text-left">Pool Carz is an online application which enable users to share ride with others. You can either book a ride or offer a ride. Did we mention that this app is advertisement free? To add on top of that its free of cost! So what are you waiting for? Check out the rides available and start PCing!!</p>
+      <div class=" text-center">
+        <div class="row">
+          <button *ngIf="!showAllRules" class="btn btn-success" (click)="showAllRules=!showAllRules">Show All Rules</button>
+          <button *ngIf="showAllRules" class="btn btn-primary" (click)="sortBy='frominfosys'">From Infosys</button>
+          <button *ngIf="showAllRules" class="btn btn-primary" (click)="sortBy='toinfosys'">To Infosys</button>
+          <button *ngIf="showAllRules" class="btn btn-primary" (click)="sortBy=undefined">Others</button>
+        </div>
+        <div *ngIf="showAllRules" class="table-responsive">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h5>Please select a ride!</h5>
+              </div>
+              <div class="panel-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Start Point</th>
+                      <th>End Point</th>
+                      <th>Seats Available</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of bookrides | filterRides: sortBy" appOnHover (click)="showRideDetail=true;childData=data;">
+                      <td>{{data.startPoint}}</td>
+                      <td>{{data.endPoint}}</td>
+                      <td>{{data.seats}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        </div>
+        <app-ride-detail *ngIf="showRideDetail" [childData]="childData"></app-ride-detail>
+        <div class="">
+          <button type="button" class="btn btn-primary" (click)="offerRide=true;">Offer A Ride!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-offer-ride *ngIf="offerRide"></app-offer-ride>
+</div>

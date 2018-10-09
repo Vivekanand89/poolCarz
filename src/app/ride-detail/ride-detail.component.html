@@ -1,0 +1,32 @@
+<div  *ngIf='childData' class="">
+  <h3>
+    Child Details
+  </h3>
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>
+            Pick-up Point
+          </th>
+          <th>
+            Seats
+          </th>
+          <th>
+            Destination
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{childData.name}}</td>
+          <td>{{childData.startPoint}}</td>
+          <td>{{childData.seats}}</td>
+          <td>{{childData.endPoint}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

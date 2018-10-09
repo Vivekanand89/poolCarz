@@ -1,0 +1,21 @@
+[{
+    "name": "Sheen",
+    "startPoint": "Infosys",
+    "endPoint": "Hosur",
+    "seats": 2
+  },{
+    "name": "Mohan",
+    "startPoint": "BTM",
+    "endPoint": "Infosys",
+    "seats": 5
+  },{
+    "name": "Deepshikha",
+    "startPoint": "Banshankari",
+    "endPoint": "Infosys",
+    "seats": 1
+  },{
+    "name": "Raj",
+    "startPoint": "Infosys",
+    "endPoint": "Electronic city",
+    "seats": 3
+}]
